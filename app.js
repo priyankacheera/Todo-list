@@ -10,11 +10,16 @@ btn.addEventListener('click',(e)=>{
     else{
         tasklist.innerHTML=tasklist.innerHTML+`
          <div id='task'>
-         <span>$(inputtask.value)</span>
-         <button id="delbtn"><i class="fa-solid fa-trash" style="color: #eb190a;"></i></button>
+         <span>${inputtask.value}</span>
+         <button id="delbtn"><i class="fa-solid fa-trash" style="color: #050505;"></i></button>
          </div>
         `
     }
-    let alltasks=document.getElementById('delbtn')
-    
+    let alltasks=document.querySelectorAll('#delbtn')
+     for(i=0;i<alltasks.length;i++){
+        alltasks[i].onclick=function(){
+            this.parentNode.remove()
+        }
+     }
+     inputtask.value=''
 })
